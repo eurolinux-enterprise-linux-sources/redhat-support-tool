@@ -379,7 +379,11 @@ def set_docstring(doctext):
 
 
 def do_help(clsobj):
-    HEADER = _("Documented commands (type help <topic>):")
+    if is_interactive():
+        HEADER = _("Documented commands (type help <topic>):")
+    else:
+        HEADER = _("Documented commands (<topic> -h,--help):")
+
     ruler = '='
 
     help_dict = {}

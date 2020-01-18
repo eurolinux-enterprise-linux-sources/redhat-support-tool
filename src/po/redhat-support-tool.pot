@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: redhat-support-tool 0.9.5-8\n"
+"Project-Id-Version: redhat-support-tool 0.9.6-0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-14 10:06-0400\n"
+"POT-Creation-Date: 2014-03-04 18:42-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,29 +16,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/__main__.py:55
+#: src/__main__.py:56
 msgid "Exit the program."
 msgstr ""
 
-#: src/__main__.py:56
+#: src/__main__.py:57
 msgid "Command (? for help): "
 msgstr ""
 
-#: src/__main__.py:57
+#: src/__main__.py:58
 msgid "Welcome to the Red Hat Support Tool."
 msgstr ""
 
-#: src/__main__.py:125
+#: src/__main__.py:126
 #, python-format
 msgid "Vendor plugin %s was not loaded due to missing metadata"
 msgstr ""
 
-#: src/__main__.py:128
+#: src/__main__.py:129
 #, python-format
 msgid "Unable to load vendor plugin %s, skipping..."
 msgstr ""
 
-#: src/__main__.py:187
+#: src/__main__.py:188
 msgid ""
 "Usage: makeconfig\n"
 "\n"
@@ -53,49 +53,53 @@ msgid ""
 "and create it if necessary.\n"
 msgstr ""
 
-#: src/__main__.py:205 src/redhat_support_tool/plugins/__init__.py:619
+#: src/__main__.py:206 src/redhat_support_tool/plugins/__init__.py:619
 #, python-format
 msgid "%s is an invalid selection. Type 'help' to see valid selections again."
 msgstr ""
 
-#: src/__main__.py:252
+#: src/__main__.py:253
 msgid "ERROR: No command to run was provided"
 msgstr ""
 
-#: src/__main__.py:258
+#: src/__main__.py:259
 msgid "Execute a shell command. You can also use '!'."
 msgstr ""
 
-#: src/__main__.py:262 src/redhat_support_tool/plugins/__init__.py:715
+#: src/__main__.py:263 src/redhat_support_tool/plugins/__init__.py:715
 #: src/redhat_support_tool/plugins/__init__.py:719
 msgid "Execute a shell command. You can also use '!'"
 msgstr ""
 
-#: src/__main__.py:263 src/redhat_support_tool/plugins/__init__.py:720
+#: src/__main__.py:264 src/redhat_support_tool/plugins/__init__.py:720
 msgid "Example:"
 msgstr ""
 
-#: src/__main__.py:312 src/redhat_support_tool/helpers/common.py:125
+#: src/__main__.py:319 src/redhat_support_tool/helpers/common.py:125
 #: src/redhat_support_tool/helpers/common.py:181
 #: src/redhat_support_tool/helpers/common.py:226
 #: src/redhat_support_tool/helpers/common.py:272
 #: src/redhat_support_tool/helpers/common.py:316
-#: src/redhat_support_tool/plugins/add_attachment.py:269
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:167
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:189
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:194
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:284
+#: src/redhat_support_tool/plugins/add_attachment.py:425
 #: src/redhat_support_tool/plugins/add_comment.py:198
-#: src/redhat_support_tool/plugins/btextract.py:244
-#: src/redhat_support_tool/plugins/btextract.py:303
-#: src/redhat_support_tool/plugins/btextract.py:408
-#: src/redhat_support_tool/plugins/diagnose.py:194
-#: src/redhat_support_tool/plugins/get_attachment.py:298
-#: src/redhat_support_tool/plugins/get_attachment.py:326
+#: src/redhat_support_tool/plugins/btextract.py:245
+#: src/redhat_support_tool/plugins/btextract.py:304
+#: src/redhat_support_tool/plugins/btextract.py:409
+#: src/redhat_support_tool/plugins/diagnose.py:152
+#: src/redhat_support_tool/plugins/get_attachment.py:309
+#: src/redhat_support_tool/plugins/get_attachment.py:337
 #: src/redhat_support_tool/plugins/get_case.py:137
 #: src/redhat_support_tool/plugins/kb.py:131
 #: src/redhat_support_tool/plugins/list_attachments.py:124
-#: src/redhat_support_tool/plugins/list_cases.py:335
+#: src/redhat_support_tool/plugins/list_cases.py:341
 #: src/redhat_support_tool/plugins/list_entitlements.py:98
 #: src/redhat_support_tool/plugins/modify_case.py:253
 #: src/redhat_support_tool/plugins/open_case.py:464
-#: src/redhat_support_tool/plugins/search.py:225
+#: src/redhat_support_tool/plugins/search.py:231
 #: src/redhat_support_tool/plugins/symptom.py:153
 #, python-format
 msgid "ERROR: %s"
@@ -106,19 +110,18 @@ msgstr ""
 #: src/redhat_support_tool/helpers/common.py:231
 #: src/redhat_support_tool/helpers/common.py:277
 #: src/redhat_support_tool/helpers/common.py:321
-#: src/redhat_support_tool/plugins/add_attachment.py:274
 #: src/redhat_support_tool/plugins/add_comment.py:203
-#: src/redhat_support_tool/plugins/diagnose.py:199
-#: src/redhat_support_tool/plugins/get_attachment.py:303
-#: src/redhat_support_tool/plugins/get_attachment.py:331
+#: src/redhat_support_tool/plugins/diagnose.py:157
+#: src/redhat_support_tool/plugins/get_attachment.py:314
+#: src/redhat_support_tool/plugins/get_attachment.py:342
 #: src/redhat_support_tool/plugins/get_case.py:142
 #: src/redhat_support_tool/plugins/kb.py:136
 #: src/redhat_support_tool/plugins/list_attachments.py:129
-#: src/redhat_support_tool/plugins/list_cases.py:340
+#: src/redhat_support_tool/plugins/list_cases.py:346
 #: src/redhat_support_tool/plugins/list_entitlements.py:103
 #: src/redhat_support_tool/plugins/modify_case.py:258
 #: src/redhat_support_tool/plugins/open_case.py:469
-#: src/redhat_support_tool/plugins/search.py:230
+#: src/redhat_support_tool/plugins/search.py:236
 #, python-format
 msgid "Unable to connect to support services API. Reason: %s"
 msgstr ""
@@ -128,19 +131,18 @@ msgstr ""
 #: src/redhat_support_tool/helpers/common.py:237
 #: src/redhat_support_tool/helpers/common.py:283
 #: src/redhat_support_tool/helpers/common.py:327
-#: src/redhat_support_tool/plugins/add_attachment.py:280
 #: src/redhat_support_tool/plugins/add_comment.py:209
-#: src/redhat_support_tool/plugins/diagnose.py:205
-#: src/redhat_support_tool/plugins/get_attachment.py:309
-#: src/redhat_support_tool/plugins/get_attachment.py:337
+#: src/redhat_support_tool/plugins/diagnose.py:163
+#: src/redhat_support_tool/plugins/get_attachment.py:320
+#: src/redhat_support_tool/plugins/get_attachment.py:348
 #: src/redhat_support_tool/plugins/get_case.py:148
 #: src/redhat_support_tool/plugins/kb.py:142
 #: src/redhat_support_tool/plugins/list_attachments.py:135
-#: src/redhat_support_tool/plugins/list_cases.py:346
+#: src/redhat_support_tool/plugins/list_cases.py:352
 #: src/redhat_support_tool/plugins/list_entitlements.py:109
 #: src/redhat_support_tool/plugins/modify_case.py:264
 #: src/redhat_support_tool/plugins/open_case.py:475
-#: src/redhat_support_tool/plugins/search.py:236
+#: src/redhat_support_tool/plugins/search.py:242
 msgid ""
 "Problem connecting to the support services API.  Is the service accessible "
 "from this host?"
@@ -190,40 +192,44 @@ msgstr ""
 msgid "ERROR: problem parsing the groups."
 msgstr ""
 
-#: src/redhat_support_tool/helpers/common.py:382
+#: src/redhat_support_tool/helpers/common.py:383
 msgid "Documented commands (type help <topic>):"
 msgstr ""
 
-#: src/redhat_support_tool/helpers/common.py:453
+#: src/redhat_support_tool/helpers/common.py:385
+msgid "Documented commands (<topic> -h,--help):"
+msgstr ""
+
+#: src/redhat_support_tool/helpers/common.py:457
 #, python-format
 msgid "Not enough space available in /tmp to split %s"
 msgstr ""
 
-#: src/redhat_support_tool/helpers/common.py:455
+#: src/redhat_support_tool/helpers/common.py:459
 msgid "Please provide an alternative location to split the file: "
 msgstr ""
 
-#: src/redhat_support_tool/helpers/common.py:465
+#: src/redhat_support_tool/helpers/common.py:469
 #, python-format
 msgid "Not enough space available in %s, %d bytes required"
 msgstr ""
 
-#: src/redhat_support_tool/helpers/common.py:470
+#: src/redhat_support_tool/helpers/common.py:474
 #, python-format
 msgid "Unable to create directory at %s"
 msgstr ""
 
-#: src/redhat_support_tool/helpers/common.py:478
+#: src/redhat_support_tool/helpers/common.py:482
 #, python-format
 msgid "SHA256: %s"
 msgstr ""
 
-#: src/redhat_support_tool/helpers/common.py:481
+#: src/redhat_support_tool/helpers/common.py:485
 #, python-format
 msgid "SHA1: %s"
 msgstr ""
 
-#: src/redhat_support_tool/helpers/common.py:510
+#: src/redhat_support_tool/helpers/common.py:514
 msgid ""
 "Warning: no_ssl_verify is enabled in the Red Hat Support Tool configuration, "
 "this may allow other servers to intercept communications with Red Hat.  If "
@@ -231,7 +237,7 @@ msgid ""
 "Authority using: 'config ssl_ca <filepath>'"
 msgstr ""
 
-#: src/redhat_support_tool/helpers/common.py:523
+#: src/redhat_support_tool/helpers/common.py:527
 #, python-format
 msgid ""
 "Warning: Red Hat Support Tool is unable to access the designated Certificate "
@@ -586,14 +592,30 @@ msgid ""
 "install crash)"
 msgstr ""
 
-#: src/redhat_support_tool/helpers/vmcorehelper.py:316
+#: src/redhat_support_tool/helpers/vmcorehelper.py:314
+msgid "Unable to determine vmcore kernel version of "
+msgstr ""
+
+#: src/redhat_support_tool/helpers/vmcorehelper.py:317
+#: src/redhat_support_tool/helpers/vmcorehelper.py:319
+#, python-format
+msgid "%s"
+msgstr ""
+
+#: src/redhat_support_tool/helpers/vmcorehelper.py:322
 #, python-format
 msgid "ERROR: Unable to launch crash. Message: %s"
 msgstr ""
 
-#: src/redhat_support_tool/helpers/vmcorehelper.py:389
+#: src/redhat_support_tool/helpers/vmcorehelper.py:395
 #, python-format
 msgid "ERROR: Problem executing crash command: %s"
+msgstr ""
+
+#: src/redhat_support_tool/helpers/vmcorehelper.py:400
+msgid ""
+"\n"
+"Please consult the Red Hat Support Tool logs for more details."
 msgstr ""
 
 #: src/redhat_support_tool/helpers/yumdownloadhelper.py:101
@@ -603,39 +625,54 @@ msgid ""
 "system is subscribed to the appropriate software repositories."
 msgstr ""
 
-#: src/redhat_support_tool/helpers/yumdownloadhelper.py:144
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:147
+#, python-format
+msgid "Package size: %d MB > Available space: %d MB"
+msgstr ""
+
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:155
 msgid "No package object."
 msgstr ""
 
-#: src/redhat_support_tool/helpers/yumdownloadhelper.py:198
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:159
+#, python-format
+msgid "Insufficient space to download package %s to %s"
+msgstr ""
+
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:193
+#, python-format
+msgid "Failed to install kernel debug symbols from %s"
+msgstr ""
+
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:221
 #, python-format
 msgid ""
 "Unable to download kernel debug symbols because the cache directory, %s, "
 "does not exist."
 msgstr ""
 
-#: src/redhat_support_tool/helpers/yumdownloadhelper.py:207
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:230
 #, python-format
 msgid ""
 "Unable to download kernel debug symbols because the cache directory, %s, is "
 "not writeable."
 msgstr ""
 
-#: src/redhat_support_tool/helpers/yumdownloadhelper.py:253
+#: src/redhat_support_tool/helpers/yumdownloadhelper.py:285
 #, python-format
-msgid "Unable to extract %s from %s"
+msgid "ERROR: Unable to extract %s from %s"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:52
+#: src/redhat_support_tool/plugins/add_attachment.py:62
 msgid "%prog -c CASENUMBER [options] /path/to/file"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:63
+#: src/redhat_support_tool/plugins/add_attachment.py:73
 #, python-format
 msgid "Use the '%s' command to add an attachment to a case."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:77
+#: src/redhat_support_tool/plugins/add_attachment.py:87
 #, python-format
 msgid ""
 "Examples:\n"
@@ -644,12 +681,28 @@ msgid ""
 "- %s -c 12345678"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:113
+#: src/redhat_support_tool/plugins/add_attachment.py:124
+msgid "ERROR: can't use -s/--split and -x/--no-split options together"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:126
+#, python-format
+msgid "ERROR: -s/--split takes at most one optional argument (found %d: %s)"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:128
+#, python-format
+msgid ""
+"ERROR: the optional argument to -s/--split must be an integer between 1 and %"
+"d (MB)"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:193
 #: src/redhat_support_tool/plugins/add_comment.py:111
 msgid "The case number from which the comment should be added. (required)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:118
+#: src/redhat_support_tool/plugins/add_attachment.py:198
 msgid ""
 "A description for the attachment. The Red Hat Support Tool will generate a "
 "default description for the attachment if none is provided that contains the "
@@ -657,71 +710,144 @@ msgid ""
 "(optional)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:123
+#: src/redhat_support_tool/plugins/add_attachment.py:204
 msgid ""
 "Do not attempt to split uploaded files, upload may fail as a result if an "
 "alternative destination is not available."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:128
+#: src/redhat_support_tool/plugins/add_attachment.py:209
+#, python-format
+msgid ""
+"The uploaded attachment file will be intentionally split.  An optional size "
+"parameter (in MB) can be supplied and the attachment will be split into "
+"'size' (MB) chunks.  Default/Maximum chunk size: %d (MB)"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:215
+#, python-format
+msgid "Upload via FTP to %s instead of the Red Hat Customer Portal."
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:219
+msgid "If the attachment file is uncompressed, don't compress it for upload."
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:228
 #: src/redhat_support_tool/plugins/add_comment.py:120
-#: src/redhat_support_tool/plugins/get_attachment.py:135
+#: src/redhat_support_tool/plugins/get_attachment.py:141
 #: src/redhat_support_tool/plugins/get_case.py:102
 #: src/redhat_support_tool/plugins/modify_case.py:138
 #, python-format
 msgid "ERROR: %s requires a case number."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:133
-#: src/redhat_support_tool/plugins/get_attachment.py:140
+#: src/redhat_support_tool/plugins/add_attachment.py:229
+#, python-format
+msgid "ERROR: %s is not a valid case number."
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:234
+#: src/redhat_support_tool/plugins/get_attachment.py:146
 #: src/redhat_support_tool/plugins/get_case.py:108
 #: src/redhat_support_tool/plugins/modify_case.py:144
 msgid "Please provide a case number (or 'q' to exit): "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:150
+#: src/redhat_support_tool/plugins/add_attachment.py:262
 msgid ""
 "Please provide a description or enter to accept default (or 'q' to exit): "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:174
+#: src/redhat_support_tool/plugins/add_attachment.py:288
 msgid "Is this a public attachment (Y/n)? "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:183
+#: src/redhat_support_tool/plugins/add_attachment.py:297
 #, python-format
 msgid "ERROR: %s requires a path to a file."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:190
-#: src/redhat_support_tool/plugins/add_attachment.py:205
+#: src/redhat_support_tool/plugins/add_attachment.py:304
+#: src/redhat_support_tool/plugins/add_attachment.py:320
 #, python-format
 msgid "ERROR: %s is not a valid file."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:195
+#: src/redhat_support_tool/plugins/add_attachment.py:309
 msgid "Please provide the full path to the file (or 'q' to exit): "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:216
+#: src/redhat_support_tool/plugins/add_attachment.py:330
+#, python-format
+msgid "Compressing %s for upload ..."
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:335
+#: src/redhat_support_tool/plugins/add_attachment.py:394
+#: src/redhat_support_tool/plugins/add_attachment.py:408
+msgid "completed successfully."
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:346
 #, python-format
 msgid ""
 "%s is too large to upload to the Red Hat Customer Portal, would you like to "
-"split the file before uploading (Y/n)? "
+"split the file before uploading ([y]/n)? "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:241
-msgid "The following split file has been uploaded to the case:\n"
-msgstr ""
-
-#: src/redhat_support_tool/plugins/add_attachment.py:265
+#: src/redhat_support_tool/plugins/add_attachment.py:352
 #, python-format
-msgid "ERROR: There was a problem adding your attachment to %s"
+msgid "The attachment will be uploaded via FTP to %s instead."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/add_attachment.py:286
-#: src/redhat_support_tool/plugins/get_attachment.py:343
-msgid "Unable to get attachment"
+#: src/redhat_support_tool/plugins/add_attachment.py:380
+#, python-format
+msgid "Uploading %s to %s ..."
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:395
+#, python-format
+msgid "[RHST] The following split files were uploaded to %s:\n"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:398
+#, python-format
+msgid ""
+"\n"
+"    %s"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:410
+#, python-format
+msgid ""
+"[RHST] The following attachment was uploaded to %s:\n"
+"\n"
+"    %s-%s"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:426
+#: src/redhat_support_tool/plugins/add_attachment.py:432
+#: src/redhat_support_tool/plugins/add_attachment.py:438
+#: src/redhat_support_tool/plugins/add_attachment.py:445
+msgid "failed.\n"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:430
+#, python-format
+msgid "ERROR: Unable to connect to support services API.  Reason: %s    "
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:436
+msgid ""
+"ERROR: Problem connecting to the support services API.  Is the service "
+"accessible from this host?"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/add_attachment.py:442
+msgid ""
+"ERROR: Problem encountered whilst uploading the attachment.  Please consult "
+"the Red Hat Support Tool logs for details."
 msgstr ""
 
 #: src/redhat_support_tool/plugins/add_comment.py:48
@@ -829,11 +955,11 @@ msgid ""
 "submit:"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:65
+#: src/redhat_support_tool/plugins/btextract.py:66
 msgid "%prog [options] </path/to/vmcore>"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:76
+#: src/redhat_support_tool/plugins/btextract.py:77
 #, python-format
 msgid ""
 "Use the '%s' command get a kernel stack backtrace and other related "
@@ -842,138 +968,138 @@ msgid ""
 "run."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:93
+#: src/redhat_support_tool/plugins/btextract.py:94
 #, python-format
 msgid ""
 "Examples:\n"
 "  - %s /var/crash/vmcore"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:126
+#: src/redhat_support_tool/plugins/btextract.py:127
 msgid "Add the collected data as a comment to the provided case."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:131
+#: src/redhat_support_tool/plugins/btextract.py:132
 msgid "Run all options. Equals -aeflpFi"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:135
+#: src/redhat_support_tool/plugins/btextract.py:136
 msgid ""
 "Search the stack for possible kernel and user mode exception frames (ie. bt -"
 "e)."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:140
+#: src/redhat_support_tool/plugins/btextract.py:141
 msgid "Display the stack traces for all tasks (ie. foreach bt)."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:145
+#: src/redhat_support_tool/plugins/btextract.py:146
 msgid "Dumps the kernel log_buf contents in chronological order."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:150
+#: src/redhat_support_tool/plugins/btextract.py:151
 msgid "Displays process status for selected processes in the system."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:155
+#: src/redhat_support_tool/plugins/btextract.py:156
 msgid "Displays information about open files."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:158
+#: src/redhat_support_tool/plugins/btextract.py:159
 msgid "Run a sequence of individual 'crash' commands from a file."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:163
+#: src/redhat_support_tool/plugins/btextract.py:164
 msgid ""
 "\n"
 "Select the crash command output to view or 'e' to return to the previous "
 "menu."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:192
+#: src/redhat_support_tool/plugins/btextract.py:193
 #, python-format
 msgid "WARNING: Debug symbols for %s were not found."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:194
+#: src/redhat_support_tool/plugins/btextract.py:195
 #, python-format
 msgid ""
 "Would you like to install kernel-debuginfo-%s from available debug "
 "repositories (y/n)? "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:198
+#: src/redhat_support_tool/plugins/btextract.py:199
 #, python-format
 msgid "Installing kernel-debuginfo-%s"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:208
+#: src/redhat_support_tool/plugins/btextract.py:209
 msgid "Installation of debug images failed, cannot proceed with debug session"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:217
+#: src/redhat_support_tool/plugins/btextract.py:218
 #, python-format
 msgid "ERROR: %s requires the full path to a kernel core dump file."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:285
-#: src/redhat_support_tool/plugins/btextract.py:394
+#: src/redhat_support_tool/plugins/btextract.py:286
+#: src/redhat_support_tool/plugins/btextract.py:395
 #: src/redhat_support_tool/plugins/symptom.py:139
 msgid ""
 "Unable to upload output to Red Hat Customer Portal, reverting to displaying "
 "output to console."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:344
+#: src/redhat_support_tool/plugins/btextract.py:345
 msgid "Unable to get core dmesg log using alternate method."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:348
+#: src/redhat_support_tool/plugins/btextract.py:349
 msgid "Kernel log buffer (dmesg) logs"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:355
+#: src/redhat_support_tool/plugins/btextract.py:356
 msgid "Open a support case with dmesg logs"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:426
+#: src/redhat_support_tool/plugins/btextract.py:427
 msgid "Output from crash 'bt -a'"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:432
+#: src/redhat_support_tool/plugins/btextract.py:434
 msgid "Diagnose 'bt -a' output"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:440
+#: src/redhat_support_tool/plugins/btextract.py:442
 msgid "Open a support case with 'bt -a' output"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:448
+#: src/redhat_support_tool/plugins/btextract.py:450
 msgid "Output from crash 'bt -e'"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:455
+#: src/redhat_support_tool/plugins/btextract.py:457
 msgid "Output from crash 'foreach bt'"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:462
+#: src/redhat_support_tool/plugins/btextract.py:464
 msgid "Output from crash 'log'"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:469
+#: src/redhat_support_tool/plugins/btextract.py:471
 msgid "Output from crash 'ps'"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:476
+#: src/redhat_support_tool/plugins/btextract.py:478
 msgid "Output from crash 'files'"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:485
+#: src/redhat_support_tool/plugins/btextract.py:487
 #, python-format
 msgid "Output from crash -i %s"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/btextract.py:491
+#: src/redhat_support_tool/plugins/btextract.py:493
 #, python-format
 msgid "Problem opening %s. Error is: %s"
 msgstr ""
@@ -982,18 +1108,18 @@ msgstr ""
 msgid "Diagnose a problem"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/diagnose.py:56
+#: src/redhat_support_tool/plugins/diagnose.py:55
 msgid "%prog <keywords, file, or directory containing log files>"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/diagnose.py:67
+#: src/redhat_support_tool/plugins/diagnose.py:66
 #, python-format
 msgid ""
 "Use the '%s' command to send a file, a directory containing files, or plain "
 "text to Shadowman for analysis."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/diagnose.py:82
+#: src/redhat_support_tool/plugins/diagnose.py:81
 #, python-format
 msgid ""
 "Examples:\n"
@@ -1003,54 +1129,54 @@ msgid ""
 "- %s libvirt error code: 1, message: internal error HTTP response code 404\n"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/diagnose.py:92
-#: src/redhat_support_tool/plugins/search.py:128
+#: src/redhat_support_tool/plugins/diagnose.py:91
+#: src/redhat_support_tool/plugins/search.py:135
 msgid ""
 "\n"
 "Type the number of the solution to view or 'e' to return to the previous "
 "menu."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/diagnose.py:96
-#: src/redhat_support_tool/plugins/search.py:132
+#: src/redhat_support_tool/plugins/diagnose.py:95
+#: src/redhat_support_tool/plugins/search.py:139
 msgid "Select a Solution: "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/diagnose.py:102
+#: src/redhat_support_tool/plugins/diagnose.py:101
 #, python-format
 msgid "ERROR: %s requires a file, directory, or text."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/diagnose.py:109
+#: src/redhat_support_tool/plugins/diagnose.py:108
 msgid ""
 "Please provide the file, directory, or text to be analyzed: Ctrl-d on an "
 "empty line to submit:"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/diagnose.py:211
+#: src/redhat_support_tool/plugins/diagnose.py:169
 #, python-format
 msgid "Unable to find solutions to %s"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/diagnose.py:309
-#: src/redhat_support_tool/plugins/list_attachments.py:212
+#: src/redhat_support_tool/plugins/diagnose.py:267
+#: src/redhat_support_tool/plugins/list_attachments.py:214
 msgid "ERROR: problem parsing the attachments."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:52
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:47
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:53
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:48
 msgid "%prog <package name>"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:63
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:64
 #, python-format
 msgid ""
 "Use the '%s' command to search and install available debug images.  "
-"Wildcards are allowed."
+"Wildcards are allowed.  (requires root user privileges)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:78
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:73
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:79
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:74
 #, python-format
 msgid ""
 "Examples:\n"
@@ -1059,48 +1185,53 @@ msgid ""
 "  - %s -t xen 2.6.18-348.el5"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:113
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:113
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:114
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:114
 msgid "Select an alternative kernel variant"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:114
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:114
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:115
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:115
 msgid "VARIANT"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:117
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:130
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:118
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:131
 #, python-format
 msgid "ERROR: %s requires a package name."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:122
-#: src/redhat_support_tool/plugins/search.py:116
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:123
+#: src/redhat_support_tool/plugins/search.py:123
 msgid "Please provide the text to search (or 'q' to exit): "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:143
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:144
 msgid ""
 "\n"
 "Type the number of the kernel debug package to install or 'e' to return to "
 "the previous menu."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:147
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:148
 msgid "Select a Debug Package: "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:163
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:150
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:159
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:146
+msgid "This command requires root user privileges."
+msgstr ""
+
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:166
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:154
 #, python-format
 msgid "%s was not available from any of the following yum repositories: %s"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/find_kerneldebugs.py:189
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:160
+#: src/redhat_support_tool/plugins/find_kerneldebugs.py:192
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:164
 #, python-format
-msgid "Unable to get debug packages. Error: %s"
+msgid "ERROR: Unable to get debug packages.  %s"
 msgstr ""
 
 #: src/redhat_support_tool/plugins/get_attachment.py:45
@@ -1150,63 +1281,80 @@ msgid "Save a XML file with metadata for the given attachment. (only with -a)"
 msgstr ""
 
 #: src/redhat_support_tool/plugins/get_attachment.py:131
+msgid "Maximum attachment size to download, in bytes. (only with -a)"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/get_attachment.py:137
 msgid "Destination directory the attachment will be saved."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:159
+#: src/redhat_support_tool/plugins/get_attachment.py:165
 msgid ""
 "Please provide a download directory or press enter to use the current "
 "directory (or 'q' to exit): "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:169
+#: src/redhat_support_tool/plugins/get_attachment.py:175
 #, python-format
 msgid "%s is not a valid directory."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:181
+#: src/redhat_support_tool/plugins/get_attachment.py:187
 #, python-format
 msgid "ERROR: %s is not a valid directory."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:189
+#: src/redhat_support_tool/plugins/get_attachment.py:195
 msgid "ERROR: -a cannot be used with -u option"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:196
-#: src/redhat_support_tool/plugins/get_attachment.py:200
+#: src/redhat_support_tool/plugins/get_attachment.py:202
+#: src/redhat_support_tool/plugins/get_attachment.py:206
 #, python-format
 msgid "ERROR: %s is only effective when using %s"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:205
+#: src/redhat_support_tool/plugins/get_attachment.py:211
 #, python-format
 msgid "ERROR: %s requires the UUID of the attachment to be downloaded."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:208
+#: src/redhat_support_tool/plugins/get_attachment.py:214
 msgid "Please provide the UUID of an attachment('q' to exit): "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:226
+#: src/redhat_support_tool/plugins/get_attachment.py:232
 #, python-format
 msgid "ERROR: %s is only supported when using -a"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:262
-#: src/redhat_support_tool/plugins/get_attachment.py:265
+#: src/redhat_support_tool/plugins/get_attachment.py:268
 #, python-format
-msgid "Skipping %s"
+msgid "Skipping %s (does not match include regex)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:281
+#: src/redhat_support_tool/plugins/get_attachment.py:271
+#, python-format
+msgid "Skipping %s (matches exclude regex)"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/get_attachment.py:275
+#, python-format
+msgid "Skipping %s (%d bytes exceeds size limit)"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/get_attachment.py:292
 #, python-format
 msgid "Downloading %s..."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_attachment.py:324
+#: src/redhat_support_tool/plugins/get_attachment.py:335
 #, python-format
 msgid "File downloaded to %s"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/get_attachment.py:354
+msgid "Unable to get attachment"
 msgstr ""
 
 #: src/redhat_support_tool/plugins/get_case.py:48
@@ -1249,43 +1397,43 @@ msgstr ""
 msgid "Unable to find case"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_case.py:350
-#: src/redhat_support_tool/plugins/list_cases.py:303
+#: src/redhat_support_tool/plugins/get_case.py:352
+#: src/redhat_support_tool/plugins/list_cases.py:309
 #: src/redhat_support_tool/plugins/list_entitlements.py:180
 msgid "ERROR: problem parsing the cases."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:58
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:59
 #, python-format
 msgid ""
 "Use the '%s' command to download available debug vmlinux images.  Wildcards "
-"are allowed."
+"are allowed.  (requires root user privileges)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:109
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:110
 msgid "For multi-package installs do not ask for confirmation."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:169
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:172
 #, python-format
 msgid ""
 "The vmlinux debug images from the following packages will be extracted to: %s"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:176
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:179
 msgid "Continue (y/n)? "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:178
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:181
 msgid "Canceling"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:183
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:186
 #, python-format
 msgid "Kernel vmlinux file for %s was extracted to %s"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/get_kerneldebug.py:187
+#: src/redhat_support_tool/plugins/get_kerneldebug.py:190
 msgid "No packages to install."
 msgstr ""
 
@@ -1451,60 +1599,62 @@ msgid "Use the '%s' command to list your support cases."
 msgstr ""
 
 #: src/redhat_support_tool/plugins/list_cases.py:90
-#: src/redhat_support_tool/plugins/list_entitlements.py:74
 #, python-format
 msgid ""
 "Example:\n"
-"  - %s"
+"  - %s\n"
+"  - %s -o ownerSSOName\n"
+"  - %s -o OwnerSSOName --includeclosed\n"
+"  - %s -o ALL -k KEYWORD"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:124
+#: src/redhat_support_tool/plugins/list_cases.py:130
 msgid "Show closed cases. (optional)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:127
+#: src/redhat_support_tool/plugins/list_cases.py:133
 msgid ""
 "Show cases belonging to a particular Red Hat portal login ID. Default is "
 "show cases owned by you. Use 'ALL' to show all cases in the account. "
 "(optional)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:132
+#: src/redhat_support_tool/plugins/list_cases.py:138
 msgid "Show cases only belonging to a particular case group. (optional)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:135
+#: src/redhat_support_tool/plugins/list_cases.py:141
 msgid "Only show cases with the given keyword in their title. (optional)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:139
+#: src/redhat_support_tool/plugins/list_cases.py:145
 msgid ""
 "Include ungrouped cases in results. When this is set case owner filters will "
 "be ignored.(optional)"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:144
+#: src/redhat_support_tool/plugins/list_cases.py:150
 #: src/redhat_support_tool/plugins/open_case.py:321
 msgid "ERROR: Invalid case group selection"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:157
+#: src/redhat_support_tool/plugins/list_cases.py:163
 #, python-format
 msgid "ERROR: Invalid case group(%s) specified."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:182
+#: src/redhat_support_tool/plugins/list_cases.py:188
 msgid ""
 "\n"
 "Type the number of the case to view or 'e' to return to the previous menu."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:186
+#: src/redhat_support_tool/plugins/list_cases.py:192
 msgid "Select a Case: "
 msgstr ""
 
-#: src/redhat_support_tool/plugins/list_cases.py:229
-#: src/redhat_support_tool/plugins/list_cases.py:352
+#: src/redhat_support_tool/plugins/list_cases.py:235
+#: src/redhat_support_tool/plugins/list_cases.py:358
 msgid "Unable to find cases"
 msgstr ""
 
@@ -1515,6 +1665,13 @@ msgstr ""
 #: src/redhat_support_tool/plugins/list_entitlements.py:60
 #, python-format
 msgid "Use the '%s' command to list your current entitlements."
+msgstr ""
+
+#: src/redhat_support_tool/plugins/list_entitlements.py:74
+#, python-format
+msgid ""
+"Example:\n"
+"  - %s"
 msgstr ""
 
 #: src/redhat_support_tool/plugins/list_entitlements.py:78
@@ -1985,7 +2142,7 @@ msgstr ""
 msgid "The vmlinux images were successfully removed."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:41
+#: src/redhat_support_tool/plugins/search.py:42
 #, python-format
 msgid ""
 "%s of %s solutions displayed. Type 'm' to see more, 'r' to start from the "
@@ -1993,75 +2150,79 @@ msgid ""
 "output."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:45
+#: src/redhat_support_tool/plugins/search.py:46
 msgid "No more solutions to display"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:46
+#: src/redhat_support_tool/plugins/search.py:47
 msgid "More solutions may be available. Type 'm' to try and find more"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:49
+#: src/redhat_support_tool/plugins/search.py:50
 msgid "Work In Progress: This solution is a Work in Progress."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:51
+#: src/redhat_support_tool/plugins/search.py:52
 msgid ""
 "Unverified: This solution has not yet been verified to work by Red Hat "
 "customers."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:53
+#: src/redhat_support_tool/plugins/search.py:54
 msgid ""
 "Verified: This solution has been verified to work by Red Hat Customers and "
 "Support Engineers for the specified product version(s)."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:79
+#: src/redhat_support_tool/plugins/search.py:80
 msgid "%prog [options] <keywords>"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:90
+#: src/redhat_support_tool/plugins/search.py:91
 #, python-format
 msgid ""
 "Use the '%s' command to search the entire knowledge base for solutions with "
 "given keywords, a log message, program configuration variables, etc."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:105
+#: src/redhat_support_tool/plugins/search.py:106
 #, python-format
 msgid ""
 "Examples:\n"
 "  - %s RHEV\n"
-"  - %s Starting osa-dispatcher: RHN 9899 Traceback caught"
+"  - %s -s Starting osa-dispatcher: RHN 9899 Traceback caught"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:111
+#: src/redhat_support_tool/plugins/search.py:114
+msgid "Display summary information about matched articles"
+msgstr ""
+
+#: src/redhat_support_tool/plugins/search.py:118
 #, python-format
 msgid "ERROR: %s requires text to search."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:164
+#: src/redhat_support_tool/plugins/search.py:171
 msgid ""
 "Red Hat Support assigns a state with all knowledge solutions, which is "
 "displayed in the above output."
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:167
+#: src/redhat_support_tool/plugins/search.py:174
 msgid "The current states are:"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:186
-#: src/redhat_support_tool/plugins/search.py:242
+#: src/redhat_support_tool/plugins/search.py:193
+#: src/redhat_support_tool/plugins/search.py:248
 msgid "Unable to find solutions"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:260
+#: src/redhat_support_tool/plugins/search.py:272
 #, python-format
 msgid "State:   %s\n"
 msgstr ""
 
-#: src/redhat_support_tool/plugins/search.py:287
+#: src/redhat_support_tool/plugins/search.py:304
 msgid "ERROR: problem parsing the solutions."
 msgstr ""
 

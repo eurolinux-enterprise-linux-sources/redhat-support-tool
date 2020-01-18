@@ -25,6 +25,7 @@ from redhat_support_tool.helpers.yumdownloadhelper import YumDownloadHelper, \
                                                           NoReposError
 from redhat_support_tool.plugins.get_kerneldebug import GetKernelDebugPackages
 import logging
+import os
 
 
 __author__ = 'Nigel Jones <nigjones@redhat.com>'
@@ -61,8 +62,8 @@ class ListKernelDebugs(InteractivePlugin):
              % cls.plugin_name
         '''
         return _('Use the \'%s\' command to search and install available '
-                 'debug images.  Wildcards are allowed.') % \
-                 cls.plugin_name
+                 'debug images.  Wildcards are allowed.  (requires root user '
+                 'privileges)') % cls.plugin_name
 
     @classmethod
     def get_epilog(cls):
@@ -153,9 +154,11 @@ class ListKernelDebugs(InteractivePlugin):
         self._submenu_opts = deque()
         self._sections = {}
 
-        self.yumhelper = YumDownloadHelper()
-
         try:
+            if os.geteuid() != 0:
+                raise Exception(_('This command requires root user '
+                                  'privileges.'))
+            self.yumhelper = YumDownloadHelper()
             self.yumhelper.setup_repos()
             self.pkgAry = self.yumhelper.find_package(self.yumquery)
             if not self.pkgAry:
@@ -186,10 +189,9 @@ class ListKernelDebugs(InteractivePlugin):
             print eve
             raise
         except Exception, e:
-            msg = _("Unable to get debug packages. Error: %s") % \
-                e
+            msg = _("ERROR: Unable to get debug packages.  %s") % e
             print msg
-            logger.log(logging.WARNING, msg)
+            logger.log(logging.ERROR, msg)
             raise
 
     def non_interactive_action(self):

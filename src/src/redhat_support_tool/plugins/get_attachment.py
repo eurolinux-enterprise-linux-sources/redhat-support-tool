@@ -127,6 +127,12 @@ class GetAttachment(Plugin):
                                "attachment. (only with -a)"),
                        action="store_true",
                        default=False),
+                Option("-z", "--maxsize", dest="maxsize",
+                       help=_("Maximum attachment size to download, in bytes."
+                               " (only with -a)"),
+                       action="store",
+                       type="int",
+                       default=0),
                 Option("-d", "--destdir", dest="destdir",
                        help=_("Destination directory the attachment will be"
                        " saved."), default=None)]
@@ -220,8 +226,8 @@ class GetAttachment(Plugin):
                 print msg
                 raise Exception(msg)
 
-        # As user supplied -u, we can't use -s or -m here.
-        for value, opt in {'sorted': '-s', 'metadata': '-m'}.items():
+        # As user supplied -u, we can't use -s, -m or -z here.
+        for value, opt in {'sorted': '-s', 'metadata': '-m', 'maxsize': '-z'}.items():
             if self._options[value]:
                 msg = _('ERROR: %s is only supported when using -a') % opt
                 print msg
@@ -259,10 +265,15 @@ class GetAttachment(Plugin):
             fileName = attach.get_fileName()
 
             if include and not include.match(fileName):
-                print _('Skipping %s') % fileName
+                print _('Skipping %s (does not match include regex)') % fileName
                 continue
             if exclude and exclude.match(fileName):
-                print _('Skipping %s') % fileName
+                print _('Skipping %s (matches exclude regex)') % fileName
+                continue
+            if self._options['maxsize'] and \
+				self._options['maxsize'] < attach.get_length():
+                print _('Skipping %s (%d bytes exceeds size limit)') % \
+                    (fileName, attach.get_length())
                 continue
 
             if self._options["sorted"]:

@@ -22,6 +22,7 @@ from redhat_support_tool.helpers.common import set_docstring
 from redhat_support_tool.helpers.confighelper import _
 from redhat_support_tool.helpers.constants import Constants
 from redhat_support_tool.helpers.launchhelper import LaunchHelper
+import redhat_support_tool.helpers.version as version
 import cmd
 import codecs
 import inspect
@@ -278,6 +279,12 @@ def main():
     try:
         if len(sys.argv) > 1:
             common.set_interactive(False)
+            if str(sys.argv[1]).lower() == '-h' or str(sys.argv[1]).lower() == '--help':
+                common.do_help(RHHelp())
+                sys.exit(0)
+            if str(sys.argv[1]).lower() == '-v' or str(sys.argv[1]).lower() == '--version':
+                print 'redhat-support-tool %s' % (version.version)
+                sys.exit(0)
             # Compose input string.
             var = u' '.join([unicode(i, 'utf8') for i in sys.argv[1:]])
             if not sys.stdin.isatty():

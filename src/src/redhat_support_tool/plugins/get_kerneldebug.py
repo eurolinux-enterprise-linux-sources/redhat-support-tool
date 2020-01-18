@@ -22,6 +22,7 @@ from redhat_support_tool.helpers.yumdownloadhelper import YumDownloadHelper, \
                                                           NoReposError
 import logging
 import redhat_support_tool.helpers.confighelper as confighelper
+import os
 
 
 __author__ = 'Nigel Jones <nigjones@redhat.com>'
@@ -56,8 +57,8 @@ class GetKernelDebugPackages(Plugin):
              % cls.plugin_name
         '''
         return _('Use the \'%s\' command to download available debug '
-                 'vmlinux images.  Wildcards are allowed.') % \
-                 cls.plugin_name
+                 'vmlinux images.  Wildcards are allowed.  (requires root user '
+                 'privileges)') % cls.plugin_name
 
     @classmethod
     def get_epilog(cls):
@@ -135,12 +136,15 @@ class GetKernelDebugPackages(Plugin):
         else:
             if self._options['variant']:
                 self.yumquery = 'kernel-%s-debuginfo-%s' % \
-                    (self._options['variant'], self._args[0])
+                    (self._options['variant'], self._line)
             else:
-                self.yumquery = 'kernel-debuginfo-%s' % (self._args[0])
+                self.yumquery = 'kernel-debuginfo-%s' % (self._line)
 
     def postinit(self):
         try:
+            if os.geteuid() != 0:
+                raise Exception(_('This command requires root user '
+                                  'privileges.'))
             if len(self.pkgAry) == 0:
                 self.yumhelper = YumDownloadHelper()
                 self.yumhelper.setup_repos()
@@ -157,10 +161,9 @@ class GetKernelDebugPackages(Plugin):
             print eve
             raise
         except Exception, e:
-            msg = _("Unable to get debug packages. Error: %s") % \
-                e
+            msg = _("ERROR: Unable to get debug packages.  %s") % e
             print msg
-            logger.log(logging.WARNING, msg)
+            logger.log(logging.ERROR, msg)
             raise
 
     def non_interactive_action(self):

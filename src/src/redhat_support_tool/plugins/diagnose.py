@@ -39,7 +39,6 @@ logger = logging.getLogger("redhat_support_tool.plugins.diagnose")
 class Diagnose(InteractivePlugin):
     plugin_name = 'diagnose'
     ALL = _("Diagnose a problem")
-    _report_file = None
     _submenu_opts = None
     _sections = None
     _pAry = None
@@ -119,25 +118,6 @@ class Diagnose(InteractivePlugin):
                 print msg
                 raise Exception(msg)
 
-    def _make_report_file(self):
-        if not os.path.isfile(self._line):
-            tf = None
-            try:
-                try:
-                    (tf, name) = tempfile.mkstemp()
-                    tf = os.fdopen(tf, 'w')
-                    tf.write(self._line.encode('utf-8'))
-                    tf.close()
-                    self._report_file = apihelper.get_api().\
-                        make_report(name)
-                except Exception:
-                    raise
-            finally:
-                if tf:
-                    os.unlink(name)
-        else:
-            self._report_file = os.path.expanduser(self._line)
-
     def insert_obj(self, symptom):
         '''
         Allow insertion of a package object by launchhelper (when selecting
@@ -149,7 +129,6 @@ class Diagnose(InteractivePlugin):
     def validate_args(self):
         # Check for required arguments.
         self._check_input()
-        self._make_report_file()
 
     def postinit(self):
         self._submenu_opts = deque()
@@ -159,31 +138,10 @@ class Diagnose(InteractivePlugin):
         try:
             api = apihelper.get_api()
             if not os.path.isfile(self._line):
-                dyna_report_file = None
-                tf = None
-                try:
-                    try:
-                        (tf, name) = tempfile.mkstemp()
-                        tf = os.fdopen(tf, 'w')
-                        tf.write(self._line.encode('utf-8'))
-                        tf.close()
-                        dyna_report_file = \
-                            apihelper.get_api().make_report(name)
-                    except Exception:
-                        raise
-                finally:
-                    if tf:
-                        os.unlink(name)
-                self._pAry = api.problems.diagnoseFile(dyna_report_file)
-                try:
-                    os.unlink(dyna_report_file)
-                # pylint: disable=W0703
-                except Exception:
-                    print 'ERROR: Unable to remove temporary file %s' % \
-                        dyna_report_file
+                self._pAry = api.problems.diagnoseStr(self._line)
             else:
-                self._report_file = os.path.expanduser(self._line)
-                self._pAry = api.problems.diagnoseFile(self._report_file)
+                report_file = os.path.expanduser(self._line)
+                self._pAry = api.problems.diagnoseFile(report_file)
 
             if len(self._pAry) > 0:
                 if not self._parse_problem():

@@ -80,7 +80,7 @@ class YumDownloadHelper(yum.YumBase):
         self.repos.setProgressBar(TextMeter(fo=sys.stdout))
 
     def setup_repos(self,
-                    repos_to_enable='*debug*',
+                    repos_to_enable='rhel*debug*',
                     repos_to_disable='*'):
         if repos_to_disable:
             self.repos.disableRepo(repos_to_disable)
@@ -139,16 +139,33 @@ class YumDownloadHelper(yum.YumBase):
             logger.exception(e)
         return retVal
 
+    def isSpaceToDownloadPackage(self, pkgobj):
+        if not os.path.exists(pkgobj.localPkg()):
+            fs_stat = os.statvfs(os.path.dirname(pkgobj.localPkg()))
+            fs_size = (fs_stat.f_bavail * fs_stat.f_frsize)
+            if pkgobj.size > fs_size:
+                msg = _("Package size: %d MB > Available space: %d MB" %
+                       (pkgobj.size / 1024 / 1024, fs_size / 1024 / 1024))
+                logger.log(logging.ERROR, msg)
+                return False
+        return True
+
     def downloadPackage(self, pkgobj=None):
         if not pkgobj:
             raise Exception(_('No package object.'))
 
         try:
-            self.downloadPkgs([pkgobj])
+            if not self.isSpaceToDownloadPackage(pkgobj):
+                err = _("Insufficient space to download package %s to %s" %
+                       (pkgobj, pkgobj.localPkg()))
+                raise Exception(err)
+
+            errors = self.downloadPkgs([pkgobj])
+            if errors:
+                raise Exception("\n".join(errors[pkgobj]))
         except Exception, e:
-            print e
+            print(_("ERROR: %s" % e))
             logger.log(logging.ERROR, e)
-            logger.exception(e)
             return None
 
         if hasattr(pkgobj, 'localpath'):
@@ -163,27 +180,33 @@ class YumDownloadHelper(yum.YumBase):
         vmlinuxfound = None
 
         if location:
-            for path in pkgobj.filelist:
-                if path.endswith('vmlinux'):
-                    # call rpm2cpio here
-                    vmlinuxfound = path
-                    break
+            try:
+                for path in pkgobj.filelist:
+                    if path.endswith('vmlinux'):
+                        vmlinuxfound = path
+                        break
+            except Exception, e:
+                print(_("ERROR: %s" % e))
+                logger.log(logging.ERROR, e)
 
         if not vmlinuxfound:
-            # we should raise an exception here
+            err = _('Failed to install kernel debug symbols from %s' % pkgobj)
+            print(_("ERROR: %s" % err))
+            logger.log(logging.ERROR, err)
+            raise Exception(err)
             return None
 
-        # Run cpio here
         if hasattr(pkgobj, 'nvr'):
             pkgnvr = pkgobj.nvr
         else:
             pkgnvr = "%s-%s-%s" % (pkgobj.name, pkgobj.version, pkgobj.release)
         destdir = os.path.join(kernelext_dir, pkgnvr)
         dest = os.path.join(destdir, 'vmlinux')
-        if not os.path.exists(destdir):
-            if os.path.exists(dest):
-                # Already exists, just return the path!
-                print dest
+        if os.path.exists(dest):
+            logger.log(logging.INFO, "%s already exists, skipping extraction"
+                       % dest)
+            return dest
+        elif not os.path.exists(destdir):
             os.mkdir(destdir)
 
         return self.extractFile(location, vmlinuxfound, dest)
@@ -250,15 +273,19 @@ class YumDownloadHelper(yum.YumBase):
             out, err = proc2.communicate()
             ret = proc2.returncode
             if ret != 0:
-                msg = _('Unable to extract %s from %s' % pattern, pkgloc)
-                raise Exception(msg)
+                raise Exception(err.rstrip())
 
             # Return to previous dir, move the file to destination
             # and revert to previous cwd.
             shutil.move(os.path.join(tempdir, cpiopattern), dest)
         # pylint: disable=W0703
         except Exception, e:
-            logger.log(logger.error, e)
+            logger.log(logging.ERROR, e)
+            print(_("ERROR: %s" % e))
+            print(_("ERROR: Unable to extract %s from %s" % (pattern, pkgloc)))
+            if os.path.exists(dest):
+                # clean up in case vmlinux file is only partially extracted
+                shutil.rmtree(os.path.dirname(dest))
             dest = None
 
         os.chdir(prevcwd)

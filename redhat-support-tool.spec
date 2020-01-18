@@ -15,12 +15,12 @@
 # limitations under the License.
 #
 
-%global	        package_version 0.9.5-8
-%global	        package_name redhat-support-tool
+%global         package_version 0.9.6-0
+%global         package_name redhat-support-tool
 
 Name:           %{package_name}
-Version:        0.9.5
-Release:        8%{?release_suffix}%{?dist}
+Version:        0.9.6
+Release:        0%{?release_suffix}%{?dist}
 Summary:        Tool for console access to Red Hat subscriber services
 Vendor:         Red Hat, Inc.
 Group:          Development/Libraries
@@ -36,7 +36,7 @@ BuildArch: noarch
 Requires: python
 Requires: python-lxml
 Requires: python-dateutil
-Requires: redhat-support-lib-python >= 0.9.5-3
+Requires: redhat-support-lib-python >= 0.9.6-0
 
 %if 0%{?rhel} && 0%{?rhel} <= 5
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
@@ -67,12 +67,27 @@ mv src/redhat_support_tool/vendors/ACMECorp samples/vendors/
 rm -rf "%{buildroot}"
 make %{?_smp_mflags} install DESTDIR="%{buildroot}"
 
+%if 0%{?rhel} && 0%{?rhel} <= 5
+%clean
+rm -rf "%{buildroot}"
+%endif
+
 %files
 %doc AUTHORS README README.plugins samples/
 %{python_sitelib}/redhat_support_tool/
 %{_bindir}/redhat-support-tool
 
 %changelog
+* Wed Feb 26 2014 Keith Robertson <kroberts@redhat.com> - 0.9.6-0
+- Resolves: rhbz#983968
+- Resolves: rhbz#1036707
+- Resolves: rhbz#1036713
+- Resolves: rhbz#1036783
+- Resolves: rhbz#1037647
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 0.9.5-9
+- Mass rebuild 2013-12-27
+
 * Mon Aug 12 2013 Keith Robertson <kroberts@redhat.com> - 0.9.5-8
 - Resolves: rhbz#983909
 

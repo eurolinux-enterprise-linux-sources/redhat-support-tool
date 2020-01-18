@@ -31,6 +31,7 @@ from redhat_support_tool.plugins.open_case import OpenCase
 import logging
 import os.path
 import pydoc
+import redhat_support_tool.helpers.common as common
 import redhat_support_tool.helpers.apihelper as apihelper
 import redhat_support_tool.helpers.vmcorehelper as vmcorehelper
 import redhat_support_tool.helpers.confighelper as confighelper
@@ -198,7 +199,7 @@ class BTExtract(InteractivePlugin):
                 print _('Installing kernel-debuginfo-%s') % \
                     self.vmcore.getKernelVersion()
                 lh = LaunchHelper(GetKernelDebugPackages)
-                lh.run('-n %s' % (self.vmcore.getKernelVersion()),
+                lh.run(self.vmcore.getKernelVersion(),
                        pt_exception=True)
                 vmlinux = vmcorehelper.get_debug_symbols(
                                 kernelext_dir, self.vmcore.getKernelVersion())
@@ -428,20 +429,21 @@ class BTExtract(InteractivePlugin):
         self._submenu_opts.append(disp_opt)
         self._sections[disp_opt] = output
 
-        # Send to Shadowman
-        disp_opt = ObjectDisplayOption(_("Diagnose 'bt -a' output"),
-                                       '_send_to_shadowman',
-                                       output)
-        self._submenu_opts.append(disp_opt)
-        self._sections[disp_opt] = output
+        if common.is_interactive():
+            # Send to Shadowman
+            disp_opt = ObjectDisplayOption(_("Diagnose 'bt -a' output"),
+                                           '_send_to_shadowman',
+                                           output)
+            self._submenu_opts.append(disp_opt)
+            self._sections[disp_opt] = output
 
-        # Open a support case
-        disp_opt = ObjectDisplayOption(
-                            _("Open a support case with 'bt -a' output"),
-                            '_opencase',
-                            output)
-        self._submenu_opts.append(disp_opt)
-        self._sections[disp_opt] = output
+            # Open a support case
+            disp_opt = ObjectDisplayOption(
+                                _("Open a support case with 'bt -a' output"),
+                                '_opencase',
+                                output)
+            self._submenu_opts.append(disp_opt)
+            self._sections[disp_opt] = output
 
         if self._options['exframe']:
             output = self.vmcore.exe_crash_commands('bt -e')

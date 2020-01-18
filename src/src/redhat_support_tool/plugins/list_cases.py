@@ -88,7 +88,13 @@ class ListCases(InteractivePlugin):
           - %s -c 12345678
         '''
         return _('Example:\n'
-                 '  - %s') % (cls.plugin_name)
+                 '  - %s\n'
+                 '  - %s -o ownerSSOName\n'
+                 '  - %s -o OwnerSSOName --includeclosed\n'
+                 '  - %s -o ALL -k KEYWORD') % (cls.plugin_name,
+                                                cls.plugin_name,
+                                                cls.plugin_name,
+                                                cls.plugin_name)
 
     @classmethod
     def get_options(cls):

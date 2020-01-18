@@ -186,7 +186,7 @@ number.') % cls.plugin_name
         else:
             if display_option.display_text == Constants.CASE_GET_ATTACH:
                 lh = LaunchHelper(ListAttachments)
-                lh.run(self.case)
+                lh.run('-c %s' % self.case)
             elif display_option.display_text == Constants.CASE_ADD_ATTACH:
                 lh = LaunchHelper(AddAttachment)
                 lh.run('-c %s' % self.case)
@@ -236,6 +236,8 @@ number.') % cls.plugin_name
                                          case.get_alternateId())
             doc += '%-20s  %-40s\n' % (Constants.CASE_PROD,
                                        case.get_product())
+            doc += '%-20s  %-40s\n' % (Constants.CASE_VER,
+                                       case.get_version())
 
             if case.get_entitlement() is None:
                 doc += '%-20s  %-40s\n' % (Constants.CASE_SLA, ' ')

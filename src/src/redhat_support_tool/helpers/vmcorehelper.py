@@ -311,7 +311,13 @@ class VMCore(object):
                            (self.coreFilename, str(stdout).strip()))
                 return  str(stdout).strip()
             else:
-                raise Exception(stderr)
+                msg = _('Unable to determine vmcore kernel version of ' +
+                        self.coreFilename + ': ')
+                if not stderr:
+                    msg += _('%s' % str(stdout).strip())
+                else:
+                    msg += _('%s' % stderr)
+                raise Exception(msg)
         except Exception, e:
             msg = _('ERROR: Unable to launch crash. Message: %s') % e
             print msg
@@ -388,6 +394,11 @@ class VMCore(object):
                 else:
                     msg = _('ERROR: Problem executing crash command: %s' %
                             stderr)
+                    if not stderr:
+                        logger.error('%s\nCommand: %s\nOutput:\n%s' %
+                                     (msg, ' '.join(cmd), str(stdout).strip()))
+                        msg += _('\nPlease consult the Red Hat Support Tool '
+                                 'logs for more details.')
                     print msg
                     raise Exception(msg)
 

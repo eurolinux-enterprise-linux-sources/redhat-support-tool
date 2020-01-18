@@ -171,6 +171,7 @@ class ListAttachments(InteractivePlugin):
                     doc += self._sections[opt]
             pydoc.pipepager(doc.encode("UTF-8", 'replace'),
                             cmd='less -R')
+        # Used by GetCase
         else:
             uuid = None
             uuid = display_option.stored_obj
@@ -200,8 +201,9 @@ class ListAttachments(InteractivePlugin):
                 doc += '\n\n%s%s%s\n\n' % (Constants.BOLD,
                                            str('-' * Constants.MAX_RULE),
                                            Constants.END)
-                disp_opt_text = "%-24s  %-50s" % (val.get_fileName(),
-                                                  val.get_description())
+                disp_opt_text = "%-24s  %-40s  %-50s" % (val.get_fileName(),
+                                                         val.get_uuid(),
+                                                         val.get_description())
                 disp_opt = ObjectDisplayOption(disp_opt_text,
                                                'interactive_action',
                                                val.get_uuid())

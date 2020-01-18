@@ -15,6 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from optparse import Option
 from collections import deque
 from redhat_support_lib.infrastructure.errors import RequestError, \
     ConnectionError
@@ -104,8 +105,14 @@ class Search(InteractivePlugin):
         '''
         return _("""Examples:
   - %s RHEV
-  - %s Starting osa-dispatcher: RHN 9899 Traceback caught""") \
+  - %s -s Starting osa-dispatcher: RHN 9899 Traceback caught""") \
   % (cls.plugin_name, cls.plugin_name)
+
+    @classmethod
+    def get_options(cls):
+        return [Option("-s", "--summary", dest="summary", default=False,
+                        help=_('Display summary information about matched '
+                        'articles'), action='store_true')]
 
     def validate_args(self):
         msg = _("ERROR: %s requires text to search.")\
@@ -192,20 +199,19 @@ class Search(InteractivePlugin):
         doc = u''
         for opt in self._submenu_opts:
             doc += self._sections[opt]
-            try:
-                print doc.encode("UTF-8", 'replace')
-            # pylint: disable=W0703
-            except Exception, e:
-                # There are some truly bizarre errors when you pipe
-                # the output from python's 'print' function with sys encoding
-                # set to ascii. These errors seem to manifes when you pipe
-                # to something like 'more' or 'less'.  You'll get encoding
-                # errors. Curiously, you don't see them with 'grep' or even
-                # simply piping to terminal.  WTF :(
-                logger.log(logging.WARNING, e)
-                import sys
-                print doc.encode(sys.getdefaultencoding(),
-                                 'replace')
+        try:
+            print doc.encode("UTF-8", 'replace')
+        # pylint: disable=W0703
+        except Exception, e:
+            # There are some truly bizarre errors when you pipe
+            # the output from python's 'print' function with sys encoding
+            # set to ascii. These errors seem to manifes when you pipe
+            # to something like 'more' or 'less'.  You'll get encoding
+            # errors. Curiously, you don't see them with 'grep' or even
+            # simply piping to terminal.  WTF :(
+            logger.log(logging.WARNING, e)
+            import sys
+            print doc.encode(sys.getdefaultencoding(), 'replace')
 
     def interactive_action(self, display_option=None):
         solution_id = None
@@ -250,9 +256,15 @@ class Search(InteractivePlugin):
         '''
         try:
             for val in solAry:
+                # doc is displayed in non-interactive mode
                 doc = u''
                 doc += '%-8s %-60s\n' % ('%s:' % Constants.TITLE,
                                            val.get_title())
+                if self._options['summary']: 
+                    summary = val.get_abstract()
+                    if summary:
+                        summary = " ".join(summary.replace('\n', ' ').split())
+                    doc += '%-8s %-60s\n' % (Constants.CASE_SUMMARY, summary)
                 doc += '%-8s %-60s\n' % (Constants.ID,
                                            val.get_id())
                 kcsState = val.get_kcsState()[0:3].upper()
@@ -267,6 +279,7 @@ class Search(InteractivePlugin):
                                            str('-' * Constants.MAX_RULE),
                                            Constants.END)
 
+                # disp_opt_text is displayed in interactive mode
                 if confighelper.get_config_helper().get(option='ponies'):
                     published_state = val.get_ModerationState()[0].upper()
                     disp_opt_text = '[%7s:%s:%s] %s' % (val.get_id(),
@@ -277,6 +290,10 @@ class Search(InteractivePlugin):
                     disp_opt_text = '[%7s:%s] %s' % (val.get_id(),
                                                      kcsState,
                                                      val.get_title())
+                # TODO: nicely display the summary within disp_opt_text
+                if self._options['summary']:
+                    disp_opt_text += ' *** %s %s' % (Constants.CASE_SUMMARY,
+                                                     summary)
                 disp_opt = ObjectDisplayOption(disp_opt_text,
                                                'interactive_action',
                                                val.get_id())
